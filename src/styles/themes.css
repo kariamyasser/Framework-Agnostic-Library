@@ -1,0 +1,12 @@
+:root[data-theme='dark'] {
+    --background: black;
+    --color: white;
+  }
+
+  :root[data-theme='light'] {
+    --background: white;
+    --color: black;
+  }
+
+
+

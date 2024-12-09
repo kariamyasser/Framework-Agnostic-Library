@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shared Library Test</title>
+  <link rel="stylesheet" href="./dist/style.css">
+</head>
+<body style="background-color: darkgrey;">
+  <h1>Testing Shared Library Components</h1>
+
+  <!-- React Component -->
+  <my-react-element text="Hello from React!"></my-react-element>
+
+  <!-- Vue Component -->
+  <my-vue-element text="Hello from Vue!"></my-vue-element>
+
+  <!-- Angular Component -->
+  <my-angular-element text="Hello from Angular!"></my-angular-element>
+
+  <!-- Vanilla JS Component -->
+  <my-vanilla-component text="Hello from Vanilla JS!"></my-vanilla-component>
+
+  <button onclick="switchTheme()">Switch Theme</button>
+
+  <!-- Include the UMD bundle -->
+  <script src="./dist/shared-library.umd.js"></script>
+  <script>
+      let currentTheme = 'dark';
+
+    function switchTheme() {
+      if (window.ThemeService) {
+      currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+      window.ThemeService.setTheme(currentTheme);
+      }
+    }
+    // Ensure ThemeService is loaded before trying to set the theme
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.ThemeService) {
+        const theme = 'dark'; // or 'light'
+        window.ThemeService.setTheme(theme); // Set the theme globally
+      } else {
+        console.error('ThemeService is not available.');
+      }
+    });
+  </script>
+</body>
+</html>

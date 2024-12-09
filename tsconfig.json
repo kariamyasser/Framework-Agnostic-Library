@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "es2017",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "strict": true,
+      "jsx": "react",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "lib": ["dom", "es2017"],
+      "declaration": true,
+      "sourceMap": true,
+      "outDir": "dist"
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+  }
